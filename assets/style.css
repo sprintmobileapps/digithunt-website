@@ -714,8 +714,10 @@ h3 {
 .policy p + p,
 .policy p + ul,
 .policy ul + p,
+.policy ol + p,
 .policy .table-wrap + p { margin-top: 14px; }
-.policy ul { display: grid; gap: 8px; margin: 14px 0 0; padding-left: 22px; }
+.policy ul,
+.policy ol { display: grid; gap: 8px; margin: 14px 0 0; padding-left: 22px; }
 .policy li::marker { color: var(--text-faint); }
 .policy strong { color: var(--text); font-weight: 600; }
 .policy code {
