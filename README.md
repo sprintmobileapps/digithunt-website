@@ -5,6 +5,7 @@ GitHub Pages site for the **Digit Hunt** Android app (`com.sprintapps.digithunt`
 Serves as:
 - Google Play developer website and marketing page
 - Privacy Policy hosting (link it from Play Console → App content → Privacy policy)
+- Terms of Service hosting (link it from Play Console → App-level trader status and Terms of Service)
 - AdMob `app-ads.txt` (publisher `pub-7995936388116429`, same account as ShrinkIt)
 
 ## File structure
@@ -13,6 +14,8 @@ Serves as:
 digithunt-website/
 ├── index.html            # Landing page with a playable practice puzzle
 ├── privacy-policy.html   # Privacy Policy (from DigitHunt/store/privacy_policy.md)
+├── terms-of-service.html # Terms of Service (Pro purchase, Digits, fair play, consumer rights)
+├── delete-data.html      # Data deletion steps for the Play Data safety form
 ├── app-ads.txt           # AdMob verification
 ├── .nojekyll             # Serve files as-is on GitHub Pages
 └── assets/
@@ -41,3 +44,4 @@ These pieces mirror app code. Update them when the app changes:
 | Practice puzzle rules (4 digits, 6 guesses) | `DAILY_DIGIT_COUNT`, `DAILY_ATTEMPT_LIMIT` |
 | Theme swatches | `TileColorThemes` in `Color.kt` |
 | Privacy policy | `store/privacy_policy.md`, permissions in the merged manifest |
+| Terms of service (Pro perks, Digits, ads) | `BillingManager`, Shop items, `shop_pro_description` |
