@@ -26,6 +26,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="assets/style.css">
+
+  <!-- In-app mode: the Digit Hunt app opens this page with ?embed=app under its own title bar.
+       Set before the body renders so the site's nav and footer never flash (see main.js). -->
+  <script>
+    if (new URLSearchParams(location.search).get('embed') === 'app') {
+      document.documentElement.classList.add('embedded');
+    }
+  </script>
 </head>
 
 <body>

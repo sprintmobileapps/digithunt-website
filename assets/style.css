@@ -751,3 +751,24 @@ h3 {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: .01ms !important; }
 }
+
+/* ── In-app mode (?embed=app) ──────────────────────────────── */
+/* The Digit Hunt app shows the legal pages under its own title bar with a close button, so the
+   site's nav ("Digit Hunt" and "Get the app"), footer and page title are hidden, and links read
+   as plain text (see main.js). */
+.embedded .skip-link,
+.embedded .nav,
+.embedded .footer,
+.embedded .policy-hero h1 { display: none !important; }
+
+.embedded { scroll-padding-top: 16px; }
+
+.embedded .policy-hero { padding-block: 20px 16px; }
+.embedded .policy-meta { font-size: 14px; }
+
+.embedded .policy { padding-bottom: 48px; }
+
+.embedded a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}

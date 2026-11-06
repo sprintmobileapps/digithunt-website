@@ -287,3 +287,23 @@ document.querySelectorAll('[data-year]').forEach((el) => {
 
   reset(true);
 })();
+
+/* ── In-app mode (?embed=app; the class is set in <head>) ──── */
+// The app shows its own title bar and close button, so the page is read-only there: links become
+// plain text, and in-page links scroll within the page without adding history entries.
+(function () {
+  if (!document.documentElement.classList.contains('embedded')) return;
+  document.querySelectorAll('a[href]').forEach((a) => {
+    const href = a.getAttribute('href');
+    if (href.length > 1 && href.startsWith('#')) {
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.getElementById(href.slice(1));
+        if (target) target.scrollIntoView({ block: 'start' });
+      });
+    } else {
+      a.removeAttribute('href');
+      a.removeAttribute('target');
+    }
+  });
+})();
