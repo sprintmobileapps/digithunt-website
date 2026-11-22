@@ -21,9 +21,8 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 72'><rect width='72' height='72' rx='16' fill='%23141626'/><rect x='12' y='12' width='14' height='14' rx='4' fill='%231FD9F5'/><rect x='29' y='12' width='14' height='14' rx='4' fill='%23272B45'/><rect x='46' y='12' width='14' height='14' rx='4' fill='%231FD9F5' fill-opacity='.65'/><rect x='12' y='29' width='14' height='14' rx='4' fill='%23272B45'/><rect x='29' y='29' width='14' height='14' rx='4' fill='%23FF4D94'/><rect x='46' y='29' width='14' height='14' rx='4' fill='%23272B45'/><rect x='12' y='46' width='14' height='14' rx='4' fill='%231FD9F5' fill-opacity='.65'/><rect x='29' y='46' width='14' height='14' rx='4' fill='%23272B45'/><rect x='46' y='46' width='14' height='14' rx='4' fill='%231FD9F5'/></svg>" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/icon-512.png">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="assets/fonts/lilita-one.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/fredoka.woff2" as="font" type="font/woff2" crossorigin>
 
   <link rel="stylesheet" href="assets/style.css">
 
@@ -78,12 +77,12 @@
         <a href="index.html#pro">Pro</a>
         <a href="index.html#faq">FAQ</a>
       </div>
-      <a class="btn btn-primary btn-sm" href="https://play.google.com/store/apps/details?id=com.sprintapps.digithunt" target="_blank" rel="noopener noreferrer">Get the app</a>
+      <a class="btn btn-sm k-cyan" href="https://play.google.com/store/apps/details?id=com.sprintapps.digithunt" target="_blank" rel="noopener noreferrer">Get the app</a>
     </nav>
   </header>
 
   <main id="main">
-    <section class="policy-hero">
+    <section class="stage policy-hero">
       <div class="container">
         <h1>Privacy Policy</h1>
         <p class="policy-meta">Digit Hunt for Android. Last updated November 2026.</p>
@@ -98,7 +97,7 @@
           <ul>
             <li>There is no account. Digit Hunt never asks for your name, email, contacts, photos or location.</li>
             <li>Your progress, streak and settings are saved on your device.</li>
-            <li>Google services handle ads (AdMob), anonymous analytics and crash reports (Firebase) and the Pro purchase (Google Play).</li>
+            <li>Google services handle ads (AdMob), anonymous analytics and crash reports (Firebase), and purchases of Pro and Digit packs (Google Play).</li>
           </ul>
         </div>
 
@@ -110,18 +109,18 @@
         <ul>
           <li><strong>Progress:</strong> puzzles played and won, your guesses for each puzzle, streak, Streak Shields, XP and level, Digits balance, campaign progress and achievements</li>
           <li><strong>Preferences:</strong> theme, colorblind mode, sound, haptics, timer, reminder settings and the cosmetics you own or have equipped</li>
-          <li><strong>Purchase status:</strong> whether this device has Digit Hunt Pro (a yes/no flag, not tied to any identity)</li>
+          <li><strong>Purchase status:</strong> whether this device has Digit Hunt Pro and the Starter Pack, and the Google Play purchase tokens already paid into your Digits, so no purchase is paid out twice. None of this is tied to your name or an account.</li>
         </ul>
         <p>This data stays on your device. Android may include it in your device's own backup (Google One or Android Backup) if you have that turned on.</p>
 
         <h2 id="analytics">3. Analytics and crash reporting</h2>
         <p>Digit Hunt uses two Google Firebase services to improve the game.</p>
-        <p><strong>Firebase Analytics</strong> records how the game is played: for example, that a puzzle was started, won or abandoned (with the mode, number of guesses, hints used and time taken), that a hint or rewarded ad was used, that Digits were earned or spent, that a streak continued, that a setting was changed, or that a result was shared (and to which app). It also keeps rough, bucketed traits such as your player level or streak length. These events are tied to an anonymous per-install identifier (the Firebase App Instance ID), not to your name or any account. Purchases of Digit Hunt Pro are reported by Google Play to Firebase as purchase events.</p>
+        <p><strong>Firebase Analytics</strong> records how the game is played: for example, that a puzzle was started, won or abandoned (with the mode, number of guesses, hints used and time taken), that a hint or rewarded ad was used, that Digits were earned or spent, that a streak continued, that a setting was changed, or that a result was shared (and to which app). It also keeps rough, bucketed traits such as your player level or streak length. These events are tied to an anonymous per-install identifier (the Firebase App Instance ID), not to your name or any account. Purchases of Digit Hunt Pro and of Digit packs are reported by Google Play to Firebase as purchase events.</p>
         <p><strong>Firebase Crashlytics</strong> collects crash reports and error logs (stack traces, device model, Android version and app version) so we can find and fix bugs.</p>
         <p>Both are provided by Google and governed by <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">Firebase's privacy terms</a>.</p>
 
         <h2 id="ads">4. Advertising</h2>
-        <p>Digit Hunt shows ads served by <strong>Google AdMob</strong>: optional rewarded ads (watched to earn Digits, a hint or an extra guess), occasional interstitial ads between puzzles and, for players who have played for a while, an ad card on the Home screen. AdMob may collect:</p>
+        <p>Digit Hunt shows ads served by <strong>Google AdMob</strong>: optional rewarded ads (watched to earn Digits, double a puzzle's rewards, get a hint or an extra guess, or see a puzzle's full hunt analysis), occasional interstitial ads between puzzles and, for players who have played for a while, an ad card on the Home screen. AdMob may collect:</p>
         <ul>
           <li><strong>Advertising ID:</strong> a resettable device identifier used for ad personalisation and frequency capping</li>
           <li><strong>IP address:</strong> used to estimate your region</li>
@@ -134,34 +133,38 @@
         <p>Read <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google's Privacy Policy</a> and <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer">how Google uses information from apps that use its services</a>.</p>
 
         <h2 id="purchases">5. In-app purchases</h2>
-        <p>Digit Hunt Pro is a one-time purchase processed by <strong>Google Play</strong>. We never see your payment details. Google Play tells the app only whether the purchase went through.</p>
+        <p>Digit Hunt Pro is a one-time purchase, and Digit packs are optional purchases of in-game Digits. Both are processed by <strong>Google Play</strong>. We never see your payment details. Google Play tells the app only whether the purchase went through. Digits bought in a pack are kept on your device with the rest of your progress and can only be used in Digit Hunt.</p>
 
-        <h2 id="notifications">6. Notifications</h2>
+        <h2 id="connection">6. Connection and date check</h2>
+        <p>So the Daily Hunt and your streak follow the real date whatever your phone's clock says, Digit Hunt asks Google's servers for the current date and time when it starts. This is a plain HTTPS request to <code>www.google.com</code> that carries no game data and no identifiers, though like any request it shows Google your IP address.</p>
+        <p>The app also asks Android whether you're online, because the free version needs a connection to play. Your connection status isn't stored or sent anywhere.</p>
+
+        <h2 id="notifications">7. Notifications</h2>
         <p>If you allow notifications, Digit Hunt can remind you about the Daily Challenge and warn you when your streak is at risk. Reminders are scheduled on your device. You can turn each one off in <strong>Settings → Notifications</strong> or in Android's settings.</p>
 
-        <h2 id="ratings">7. Ratings</h2>
+        <h2 id="ratings">8. Ratings</h2>
         <p>Digit Hunt may ask you to rate it using Google Play's in-app review prompt. Google Play handles the review; the app never sees your rating, your review or your account.</p>
 
-        <h2 id="children">8. Children</h2>
+        <h2 id="children">9. Children</h2>
         <p>Digit Hunt is not directed at children under 13 and does not knowingly collect data from children. If you believe a child has used the app and data was collected, contact us at the address below.</p>
 
-        <h2 id="permissions">9. Permissions</h2>
+        <h2 id="permissions">10. Permissions</h2>
         <div class="table-wrap">
           <table>
             <thead>
               <tr><th scope="col">Permission</th><th scope="col">Why</th></tr>
             </thead>
             <tbody>
-              <tr><td><code>INTERNET</code>, <code>ACCESS_NETWORK_STATE</code></td><td>Ads, analytics, crash reports, remote game settings and purchases</td></tr>
+              <tr><td><code>INTERNET</code>, <code>ACCESS_NETWORK_STATE</code></td><td>Ads, analytics, crash reports, remote game settings, purchases, the date check in section 6, and checking whether you're online</td></tr>
               <tr><td><code>POST_NOTIFICATIONS</code></td><td>Daily Challenge and streak reminders (Android 13 and later asks you first)</td></tr>
               <tr><td><code>com.google.android.gms.permission.AD_ID</code></td><td>Lets AdMob read the advertising ID described in section 4</td></tr>
-              <tr><td><code>com.android.vending.BILLING</code></td><td>Buying Digit Hunt Pro through Google Play</td></tr>
+              <tr><td><code>com.android.vending.BILLING</code></td><td>Buying Digit Hunt Pro and Digit packs through Google Play</td></tr>
             </tbody>
           </table>
         </div>
         <p>The remaining permissions in the app (such as <code>WAKE_LOCK</code> and Android's ad-services permissions) are added by Google's libraries for the services above. Digit Hunt does not request camera, microphone, location, contacts or storage permissions.</p>
 
-        <h2 id="services">10. Third-party services</h2>
+        <h2 id="services">11. Third-party services</h2>
         <div class="table-wrap">
           <table>
             <thead>
@@ -169,7 +172,8 @@
             </thead>
             <tbody>
               <tr><td>Google AdMob and User Messaging Platform</td><td>Advertising and ad consent</td><td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google</a></td></tr>
-              <tr><td>Google Play Billing</td><td>Processing the Pro purchase</td><td><a href="https://payments.google.com/payments/apis-secure/get_legal_document?ldo=0&amp;ldt=privacynotice" target="_blank" rel="noopener noreferrer">Google Payments</a></td></tr>
+              <tr><td>Google Play Billing</td><td>Processing purchases (Pro and Digit packs)</td><td><a href="https://payments.google.com/payments/apis-secure/get_legal_document?ldo=0&amp;ldt=privacynotice" target="_blank" rel="noopener noreferrer">Google Payments</a></td></tr>
+              <tr><td>Google (<code>www.google.com</code>)</td><td>The date check (section 6)</td><td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google</a></td></tr>
               <tr><td>Google Play In-App Review</td><td>The optional rating prompt</td><td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google</a></td></tr>
               <tr><td>Firebase Analytics</td><td>Gameplay analytics (section 3)</td><td><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">Firebase</a></td></tr>
               <tr><td>Firebase Crashlytics</td><td>Crash and error reporting (section 3)</td><td><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">Firebase</a></td></tr>
@@ -178,14 +182,14 @@
           </table>
         </div>
 
-        <h2 id="deletion">11. Data retention and deletion</h2>
+        <h2 id="deletion">12. Data retention and deletion</h2>
         <p>To delete everything Digit Hunt stores on your device, go to <em>Settings → Apps → Digit Hunt → Storage → Clear storage</em>, or uninstall the app. This also gives the app a new analytics ID, so earlier analytics and crash data is no longer linked to your device. Firebase deletes Analytics event data within 14 months and Crashlytics crash reports after 90 days. Resetting your advertising ID cuts the link to past ad data held by Google.</p>
         <p>Step-by-step instructions, including what is kept, are on the <a href="delete-data.html">Delete your data</a> page.</p>
 
-        <h2 id="changes">12. Changes to this policy</h2>
+        <h2 id="changes">13. Changes to this policy</h2>
         <p>If we make material changes to how we handle data, we will update the date at the top of this page and, where appropriate, mention it in the Play Store release notes.</p>
 
-        <h2 id="contact">13. Contact</h2>
+        <h2 id="contact">14. Contact</h2>
         <p>Sprint Mobile Apps<br>Email: <a href="mailto:sprintapps.dev@gmail.com?subject=Digit%20Hunt%20privacy">sprintapps.dev@gmail.com</a></p>
 
       </article>

@@ -1,5 +1,7 @@
 /* Digit Hunt website — main.js */
 
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
 /* ── Nav border once the page scrolls ──────────────────────── */
 (function () {
   const nav = document.getElementById('nav');
@@ -42,13 +44,12 @@ document.querySelectorAll('[data-year]').forEach((el) => {
   const MAX_GUESSES = 6;
   const OPENING_GUESS = [1, 2, 3, 4];
   const RANK = { absent: 1, present: 2, correct: 3 };
-  const SPOKEN = { correct: 'right spot', present: 'wrong spot', absent: 'not in the number' };
+  const SPOKEN = { correct: 'right spot', present: 'wrong spot', absent: 'not in the code' };
 
   const rows = Array.from(game.querySelectorAll('.row'));
   const digitKeys = Array.from(game.querySelectorAll('[data-digit]'));
   const status = document.getElementById('game-status');
   const announcer = document.getElementById('game-announcer');
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
   let secret = [];
   let guesses = [];
@@ -102,12 +103,35 @@ document.querySelectorAll('[data-year]').forEach((el) => {
     return rows[row].children[col];
   }
 
-  function setStatus(text, button) {
+  // The row being typed is outlined, and its next empty cell carries the cyan cursor, as in the app.
+  function paintCursor() {
+    rows.forEach((row, r) => row.classList.toggle('is-active', !over && r === guesses.length));
+    game.querySelectorAll('.is-cursor').forEach((c) => c.classList.remove('is-cursor'));
+    if (!over && guesses.length < MAX_GUESSES && current.length < LENGTH) {
+      tile(guesses.length, current.length).classList.add('is-cursor');
+    }
+  }
+
+  function setStatus(text, ...extras) {
     status.textContent = '';
     const line = document.createElement('span');
     line.textContent = text;
     status.appendChild(line);
-    if (button) status.appendChild(button);
+    extras.forEach((el) => status.appendChild(el));
+  }
+
+  function answerTiles(code) {
+    const wrap = document.createElement('span');
+    wrap.className = 'answer';
+    wrap.setAttribute('aria-hidden', 'true');
+    code.forEach((d) => {
+      const t = document.createElement('span');
+      t.className = 'tile';
+      t.dataset.state = 'correct';
+      t.textContent = d;
+      wrap.appendChild(t);
+    });
+    return wrap;
   }
 
   function paintKeys() {
@@ -128,7 +152,9 @@ document.querySelectorAll('[data-year]').forEach((el) => {
     current.push(digit);
     cell.textContent = digit;
     cell.dataset.state = 'filled';
-    animate(cell, [{ transform: 'scale(1)' }, { transform: 'scale(1.08)' }, { transform: 'scale(1)' }], { duration: 120 });
+    paintCursor();
+    animate(cell, [{ transform: 'scale(.86)' }, { transform: 'scale(1.06)', offset: .6 }, { transform: 'scale(1)' }],
+      { duration: 160, easing: 'ease-out' });
   }
 
   function erase() {
@@ -136,20 +162,39 @@ document.querySelectorAll('[data-year]').forEach((el) => {
     current.pop();
     const cell = tile(guesses.length, current.length);
     cell.textContent = '';
-    delete cell.dataset.state;
+    cell.dataset.state = 'empty';
+    paintCursor();
   }
 
   function clearRow() {
     while (current.length) erase();
   }
 
+  // A tile turns over to show its clue: the face folds away, the clue colour comes up, and the
+  // tile settles onto its lip.
   async function flip(cell, state, delay) {
     await wait(reducedMotion.matches ? 0 : delay);
-    await animate(cell, [{ transform: 'rotateX(0deg)' }, { transform: 'rotateX(90deg)' }], { duration: 150, fill: 'forwards' });
+    await animate(cell, [{ transform: 'rotateX(0deg)' }, { transform: 'rotateX(90deg)' }],
+      { duration: 150, easing: 'ease-in', fill: 'forwards' });
     cell.dataset.state = state;
-    await animate(cell, [{ transform: 'rotateX(90deg)' }, { transform: 'rotateX(0deg)' }], { duration: 150, fill: 'forwards' });
+    await animate(cell, [{ transform: 'rotateX(90deg)' }, { transform: 'rotateX(0deg)' }],
+      { duration: 150, easing: 'ease-out', fill: 'forwards' });
     cell.getAnimations && cell.getAnimations().forEach((a) => a.cancel());
-    animate(cell, [{ transform: 'scaleY(.9)' }, { transform: 'scaleY(1.04)', offset: .6 }, { transform: 'scaleY(1)' }], { duration: 240, easing: 'ease-out' });
+    animate(cell, [{ transform: 'scaleY(.9)' }, { transform: 'scaleY(1.04)', offset: .6 }, { transform: 'scaleY(1)' }],
+      { duration: 240, easing: 'ease-out' });
+  }
+
+  // The winning row hops, one tile after another.
+  function celebrate(row) {
+    Array.from(rows[row].children).forEach((cell, i) => {
+      animate(cell, [
+        { transform: 'translateY(0)' },
+        { transform: 'translateY(-18px) rotate(-4deg)', offset: .4, easing: 'cubic-bezier(.2,0,0,1)' },
+        { transform: 'translateY(0)', offset: .75 },
+        { transform: 'translateY(-4px)', offset: .87 },
+        { transform: 'translateY(0)' },
+      ], { duration: 560, delay: i * 90, easing: 'ease-in' });
+    });
   }
 
   async function submit() {
@@ -158,9 +203,9 @@ document.querySelectorAll('[data-year]').forEach((el) => {
     if (current.length < LENGTH) {
       setStatus('Enter all 4 digits first.');
       animate(rows[row], [
-        { transform: 'translateX(0)' }, { transform: 'translateX(-6px)' }, { transform: 'translateX(6px)' },
+        { transform: 'translateX(0)' }, { transform: 'translateX(-7px)' }, { transform: 'translateX(7px)' },
         { transform: 'translateX(-4px)' }, { transform: 'translateX(0)' },
-      ], { duration: 280 });
+      ], { duration: 300, easing: 'ease-in-out' });
       return;
     }
 
@@ -169,8 +214,9 @@ document.querySelectorAll('[data-year]').forEach((el) => {
     const result = score(guess, secret);
     guesses.push(guess);
     current = [];
+    game.querySelectorAll('.is-cursor').forEach((c) => c.classList.remove('is-cursor'));
 
-    await Promise.all(result.map((state, i) => flip(tile(row, i), state, i * 180)));
+    await Promise.all(result.map((state, i) => flip(tile(row, i), state, i * 160)));
 
     result.forEach((state, i) => {
       const d = guess[i];
@@ -183,10 +229,12 @@ document.querySelectorAll('[data-year]').forEach((el) => {
     busy = false;
 
     if (result.every((s) => s === 'correct')) {
-      finish('Cracked in ' + guesses.length + (guesses.length === 1 ? ' guess.' : ' guesses.'));
+      celebrate(row);
+      finish('Cracked in ' + guesses.length + (guesses.length === 1 ? ' guess!' : ' guesses!'));
     } else if (guesses.length === MAX_GUESSES) {
-      finish('Out of guesses. The number was ' + secret.join('') + '.');
+      finish('Out of guesses. The code was', answerTiles(secret), 'The code was ' + secret.join(' ') + '.');
     } else {
+      paintCursor();
       const left = MAX_GUESSES - guesses.length;
       const leftText = left + (left === 1 ? ' guess left.' : ' guesses left.');
       if (opening) {
@@ -200,17 +248,19 @@ document.querySelectorAll('[data-year]').forEach((el) => {
     }
   }
 
-  function finish(message) {
+  function finish(message, answer, spokenAnswer) {
     over = true;
+    paintCursor();
     const hadFocus = game.contains(document.activeElement);
     setKeysDisabled(true);
     const again = document.createElement('button');
     again.type = 'button';
-    again.className = 'btn btn-ghost btn-sm';
+    again.className = 'btn btn-sm k-cyan';
     again.textContent = 'New puzzle';
     again.addEventListener('click', () => reset(false));
-    setStatus(message, again);
-    announcer.textContent = message;
+    if (answer) setStatus(message, answer, again);
+    else setStatus(message, again);
+    announcer.textContent = spokenAnswer ? 'Out of guesses. ' + spokenAnswer : message;
     if (hadFocus) again.focus();
   }
 
@@ -220,7 +270,7 @@ document.querySelectorAll('[data-year]').forEach((el) => {
       row.setAttribute('aria-label', 'Guess ' + (r + 1) + ', empty');
       Array.from(row.children).forEach((cell) => {
         cell.textContent = '';
-        delete cell.dataset.state;
+        cell.dataset.state = 'empty';
       });
     });
     guesses = [];
@@ -240,10 +290,12 @@ document.querySelectorAll('[data-year]').forEach((el) => {
         cell.textContent = d;
         cell.dataset.state = 'filled';
       });
-      wait(reducedMotion.matches ? 0 : 500).then(submit);
+      paintCursor();
+      wait(reducedMotion.matches ? 0 : 600).then(submit);
     } else {
       secret = randomCode();
-      setStatus('New code. Type 4 digits, then press Guess.');
+      paintCursor();
+      setStatus('New code. Type 4 digits, then press Enter.');
       announcer.textContent = 'New puzzle. 6 guesses left.';
       // The New puzzle button just left the page, so keep keyboard users on the keypad.
       if (hadFocus) game.querySelector('[data-digit="1"]').focus();
@@ -288,13 +340,64 @@ document.querySelectorAll('[data-year]').forEach((el) => {
   reset(true);
 })();
 
+/* ── Colorblind colours ────────────────────────────────────── */
+// Same swap as the app's Color Blind Mode: blue for the right spot, orange for the wrong one.
+// It recolours the practice board, the clue legend and every clue tile on the page.
+(function () {
+  const toggle = document.getElementById('colorblind-switch');
+  if (!toggle) return;
+  const root = document.documentElement;
+  const set = (on) => {
+    root.classList.toggle('colorblind', on);
+    toggle.setAttribute('aria-pressed', String(on));
+    document.querySelectorAll('[data-clue-word="correct"]').forEach((el) => { el.textContent = on ? 'Blue' : 'Green'; });
+    document.querySelectorAll('[data-clue-word="present"]').forEach((el) => { el.textContent = on ? 'Orange' : 'Yellow'; });
+    const example = document.querySelector('[data-example]');
+    if (example) {
+      example.setAttribute('aria-label', 'Example guess 3 8 1 6: the 3 is ' + (on ? 'blue' : 'green') +
+        ', the 8 is grey, the 1 is ' + (on ? 'orange' : 'yellow') + ' and the 6 is grey');
+    }
+  };
+  toggle.addEventListener('click', () => set(!root.classList.contains('colorblind')));
+})();
+
+/* ── Screens rail ──────────────────────────────────────────── */
+// Swipe or scroll it; the arrow buttons page through it for mouse and keyboard users.
+(function () {
+  const rail = document.getElementById('screens-rail');
+  const nav = document.querySelector('[data-rail-nav]');
+  if (!rail || !nav) return;
+  const prev = nav.querySelector('[data-rail="prev"]');
+  const next = nav.querySelector('[data-rail="next"]');
+  const step = () => {
+    const shot = rail.querySelector('.shot');
+    const gap = parseFloat(getComputedStyle(rail.querySelector('.rail-track')).columnGap) || 0;
+    const per = shot.getBoundingClientRect().width + gap;
+    return Math.max(per, Math.floor(rail.clientWidth / per) * per);
+  };
+  const update = () => {
+    const max = rail.scrollWidth - rail.clientWidth;
+    prev.disabled = rail.scrollLeft <= 2;
+    next.disabled = rail.scrollLeft >= max - 2;
+    nav.hidden = max <= 2;
+  };
+  const go = (dir) => rail.scrollBy({ left: dir * step(), behavior: reducedMotion.matches ? 'auto' : 'smooth' });
+  prev.addEventListener('click', () => go(-1));
+  next.addEventListener('click', () => go(1));
+  rail.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+
 /* ── In-app mode (?embed=app; the class is set in <head>) ──── */
 // The app shows its own title bar and close button, so the page is read-only there: links become
-// plain text, and in-page links scroll within the page without adding history entries.
+// plain text, and in-page links scroll within the page without adding history entries. Email
+// links stay, and the app hands them to the mail app.
 (function () {
   if (!document.documentElement.classList.contains('embedded')) return;
   document.querySelectorAll('a[href]').forEach((a) => {
     const href = a.getAttribute('href');
+    if (href.startsWith('mailto:')) return;
     if (href.length > 1 && href.startsWith('#')) {
       a.addEventListener('click', (e) => {
         e.preventDefault();

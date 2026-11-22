@@ -6,7 +6,7 @@
 
   <!-- Primary SEO -->
   <title>Digit Hunt: Daily Number Puzzle for Android</title>
-  <meta name="description" content="Crack the secret number. Digit Hunt is a free daily number puzzle for Android with a shared Daily Challenge, 300 campaign levels, Infinite mode and streaks.">
+  <meta name="description" content="Crack the secret code. Digit Hunt is a free daily number puzzle for Android: a shared Daily Hunt, 300 campaign levels in 10 worlds, Infinite mode, streaks, achievements and hunt analysis.">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0A0B14">
   <link rel="canonical" href="https://sprintmobileapps.github.io/digithunt-website/">
@@ -14,16 +14,17 @@
   <!-- Open Graph -->
   <meta property="og:type"         content="website">
   <meta property="og:url"          content="https://sprintmobileapps.github.io/digithunt-website/">
-  <meta property="og:title"        content="Digit Hunt: Crack the secret number">
-  <meta property="og:description"  content="A daily number puzzle for Android. Guess the code, read the colored clues and solve it before your guesses run out.">
+  <meta property="og:title"        content="Digit Hunt: Crack the secret code">
+  <meta property="og:description"  content="A daily number puzzle for Android. Guess the code, read the colored clues and crack it before your guesses run out.">
   <meta property="og:image"        content="https://sprintmobileapps.github.io/digithunt-website/assets/og-image.png">
   <meta property="og:image:width"  content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:alt"    content="Digit Hunt: Crack the secret code, beside a board that cracks 4719 in three guesses">
   <meta property="og:site_name"    content="Digit Hunt">
 
   <!-- Twitter Card -->
   <meta name="twitter:card"        content="summary_large_image">
-  <meta name="twitter:title"       content="Digit Hunt: Crack the secret number">
+  <meta name="twitter:title"       content="Digit Hunt: Crack the secret code">
   <meta name="twitter:description" content="A daily number puzzle for Android. Free on Google Play.">
   <meta name="twitter:image"       content="https://sprintmobileapps.github.io/digithunt-website/assets/og-image.png">
 
@@ -36,9 +37,10 @@
     "operatingSystem": "Android 7.0 or later",
     "applicationCategory": "GameApplication",
     "applicationSubCategory": "Puzzle",
-    "description": "A daily number puzzle. Guess the secret number using colored clues, with a shared Daily Challenge, 300 campaign levels, Infinite mode, streaks and hints.",
+    "description": "A daily number puzzle. Guess the secret code using colored clues, with a shared Daily Hunt, 300 campaign levels in 10 worlds, Infinite mode, streaks, achievements and hunt analysis.",
     "url": "https://sprintmobileapps.github.io/digithunt-website/",
     "image": "https://sprintmobileapps.github.io/digithunt-website/assets/icon-512.png",
+    "screenshot": "https://sprintmobileapps.github.io/digithunt-website/assets/screens/hunt.webp",
     "downloadUrl": "https://play.google.com/store/apps/details?id=com.sprintapps.digithunt",
     "inLanguage": ["en", "hi", "ja", "ko", "pt-BR"],
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
@@ -50,24 +52,30 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 72'><rect width='72' height='72' rx='16' fill='%23141626'/><rect x='12' y='12' width='14' height='14' rx='4' fill='%231FD9F5'/><rect x='29' y='12' width='14' height='14' rx='4' fill='%23272B45'/><rect x='46' y='12' width='14' height='14' rx='4' fill='%231FD9F5' fill-opacity='.65'/><rect x='12' y='29' width='14' height='14' rx='4' fill='%23272B45'/><rect x='29' y='29' width='14' height='14' rx='4' fill='%23FF4D94'/><rect x='46' y='29' width='14' height='14' rx='4' fill='%23272B45'/><rect x='12' y='46' width='14' height='14' rx='4' fill='%231FD9F5' fill-opacity='.65'/><rect x='29' y='46' width='14' height='14' rx='4' fill='%23272B45'/><rect x='46' y='46' width='14' height='14' rx='4' fill='%231FD9F5'/></svg>" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/icon-512.png">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
-
+  <link rel="preload" href="assets/fonts/lilita-one.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/fredoka.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/style.css">
 </head>
 
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- Logo sprite. Geometry from app/src/main/res/drawable/ic_launcher_foreground.xml,
-       cropped to the 72dp display zone. -->
+  <!-- Symbols. The logo's geometry is ic_launcher_foreground.xml cropped to the 72dp display
+       zone; the coin, shield, medal and spark are the store screenshots' props. -->
   <svg class="sprite" aria-hidden="true" focusable="false">
     <defs>
       <radialGradient id="logo-bg" cx="50%" cy="50%" r="83%">
         <stop offset="0" stop-color="#272B45"/>
         <stop offset="1" stop-color="#08090D"/>
       </radialGradient>
+      <linearGradient id="g-rim" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFEDB0"/><stop offset=".5" stop-color="#F5BC45"/><stop offset="1" stop-color="#B27612"/></linearGradient>
+      <radialGradient id="g-face" cx=".32" cy=".3" r=".95"><stop offset="0" stop-color="#FFEDB0"/><stop offset=".45" stop-color="#F5BC45"/><stop offset="1" stop-color="#B27612"/></radialGradient>
+      <linearGradient id="g-side" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#B27612"/><stop offset=".35" stop-color="#F5BC45"/><stop offset=".6" stop-color="#FFEDB0"/><stop offset="1" stop-color="#B27612"/></linearGradient>
+      <linearGradient id="g-star" x1="0" y1="0" x2=".3" y2="1"><stop offset="0" stop-color="#FFF3B8"/><stop offset=".45" stop-color="#FFC93C"/><stop offset="1" stop-color="#E08A10"/></linearGradient>
+      <linearGradient id="g-shield" x1="0" y1="0" x2=".2" y2="1"><stop offset="0" stop-color="#C9F7FF"/><stop offset=".4" stop-color="#1FD9F5"/><stop offset="1" stop-color="#0784A8"/></linearGradient>
+      <linearGradient id="g-hex" x1="0" y1="0" x2=".4" y2="1"><stop offset="0" stop-color="#FFF0B8"/><stop offset=".5" stop-color="#F2B23A"/><stop offset="1" stop-color="#9C5F08"/></linearGradient>
+      <linearGradient id="g-hex-s" x1="0" y1="0" x2=".4" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".5" stop-color="#B9C0DA"/><stop offset="1" stop-color="#5D6584"/></linearGradient>
+
       <symbol id="logo-cells" viewBox="0 0 72 72">
         <rect x="12" y="12" width="14" height="14" rx="4" fill="#1FD9F5"/>
         <rect x="29" y="12" width="14" height="14" rx="4" fill="#1D2036"/>
@@ -84,8 +92,60 @@
         <rect x=".5" y=".5" width="71" height="71" rx="15.5" fill="none" stroke="#34374C"/>
         <use href="#logo-cells"/>
       </symbol>
+
       <symbol id="icon-play" viewBox="0 0 24 24">
         <path d="M6 3.9v16.2c0 .8.9 1.3 1.6.9l13.1-8.1c.6-.4.6-1.3 0-1.7L7.6 3c-.7-.4-1.6.1-1.6.9z" fill="currentColor"/>
+      </symbol>
+      <symbol id="icon-arrow" viewBox="0 0 24 24">
+        <path d="M4 12h15m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="icon-back" viewBox="0 0 24 24">
+        <path d="M20 12H5m6-6-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+
+      <!-- The Digit coin (Currency.kt DigitCoin): edge, rim, face and the struck cipher mark -->
+      <symbol id="coin" viewBox="0 0 100 112" overflow="visible">
+        <ellipse cx="50" cy="60" rx="50" ry="50" fill="#8A5609"/>
+        <rect x="0" y="50" width="100" height="10" fill="url(#g-side)"/>
+        <circle cx="50" cy="50" r="50" fill="#8A5609"/>
+        <circle cx="50" cy="50" r="45" fill="url(#g-rim)"/>
+        <circle cx="50" cy="50" r="36" fill="url(#g-face)"/>
+        <circle cx="50" cy="50" r="36" fill="none" stroke="#B27612" stroke-opacity=".6" stroke-width="3.5"/>
+        <g transform="translate(35.8 35.8)">
+          <rect x="0" y="0" width="8.4" height="8.4" rx="2.4" fill="#9A640B" fill-opacity=".9"/><rect x="10" y="0" width="8.4" height="8.4" rx="2.4" fill="#9A640B" fill-opacity=".2"/><rect x="20" y="0" width="8.4" height="8.4" rx="2.4" fill="#9A640B" fill-opacity=".56"/>
+          <rect x="0" y="10" width="8.4" height="8.4" rx="2.4" fill="#9A640B" fill-opacity=".2"/><rect x="10" y="10" width="8.4" height="8.4" rx="2.4" fill="#8A5609"/><rect x="20" y="10" width="8.4" height="8.4" rx="2.4" fill="#9A640B" fill-opacity=".2"/>
+          <rect x="0" y="20" width="8.4" height="8.4" rx="2.4" fill="#9A640B" fill-opacity=".56"/><rect x="10" y="20" width="8.4" height="8.4" rx="2.4" fill="#9A640B" fill-opacity=".2"/><rect x="20" y="20" width="8.4" height="8.4" rx="2.4" fill="#9A640B" fill-opacity=".9"/>
+        </g>
+        <ellipse cx="33" cy="25" rx="16" ry="7" fill="#fff" fill-opacity=".5" transform="rotate(-30 33 25)"/>
+      </symbol>
+
+      <symbol id="shield" viewBox="0 0 100 112" overflow="visible">
+        <path d="M50 8 L90 22 V52 C90 78 72 96 50 106 C28 96 10 78 10 52 V22 Z" fill="#035A73" transform="translate(0 6)"/>
+        <path d="M50 8 L90 22 V52 C90 78 72 96 50 106 C28 96 10 78 10 52 V22 Z" fill="url(#g-shield)" stroke="#0A6E8C" stroke-width="3"/>
+        <path d="M50 18 L80 29 V52 C80 72 67 86 50 94 C33 86 20 72 20 52 V29 Z" fill="#0A3E5A" fill-opacity=".28"/>
+        <path d="M34 56 L46 68 L68 42" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M22 26 L50 16 V30 L28 38 Z" fill="#fff" fill-opacity=".45"/>
+      </symbol>
+
+      <!-- Achievement medals: hexagons with a struck emblem, as on the Achievements screen -->
+      <symbol id="hex-gold" viewBox="0 0 100 110" overflow="visible">
+        <path d="M50 4 L92 28 V78 L50 102 L8 78 V28 Z" fill="#6E4204" transform="translate(0 6)"/>
+        <path d="M50 4 L92 28 V78 L50 102 L8 78 V28 Z" fill="url(#g-hex)" stroke="#8A5609" stroke-width="3"/>
+        <path d="M50 18 L80 35 V71 L50 88 L20 71 V35 Z" fill="#1A1206"/>
+        <path d="M50 30 L56.3 44.8 L72.3 46.2 L60.2 56.8 L63.8 72.5 L50 64.2 L36.2 72.5 L39.8 56.8 L27.7 46.2 L43.7 44.8 Z" fill="url(#g-star)"/>
+        <path d="M50 8 L86 29 V40 L50 19 L14 40 V29 Z" fill="#fff" fill-opacity=".35"/>
+      </symbol>
+      <symbol id="hex-silver" viewBox="0 0 100 110" overflow="visible">
+        <path d="M50 4 L92 28 V78 L50 102 L8 78 V28 Z" fill="#333a55" transform="translate(0 6)"/>
+        <path d="M50 4 L92 28 V78 L50 102 L8 78 V28 Z" fill="url(#g-hex-s)" stroke="#4A5170" stroke-width="3"/>
+        <path d="M50 18 L80 35 V71 L50 88 L20 71 V35 Z" fill="#141626"/>
+        <path d="M50 30 C58 40 66 46 64 60 C62 70 56 76 50 76 C44 76 36 71 36 60 C36 52 41 48 44 43 C45 50 48 53 51 53 C49 45 49 37 50 30 Z" fill="#FF7A3D"/>
+        <path d="M50 52 C55 57 58 62 56 67 C55 71 52 73 50 73 C47 73 44 70 44 66 C44 61 48 58 50 52 Z" fill="#FFD60A"/>
+        <path d="M50 8 L86 29 V40 L50 19 L14 40 V29 Z" fill="#fff" fill-opacity=".45"/>
+      </symbol>
+
+      <symbol id="spark" viewBox="0 0 100 100">
+        <path d="M50 0 C54 34 66 46 100 50 C66 54 54 66 50 100 C46 66 34 54 0 50 C34 46 46 34 50 0 Z" fill="currentColor"/>
       </symbol>
     </defs>
   </svg>
@@ -105,7 +165,7 @@
         <a href="#pro">Pro</a>
         <a href="#faq">FAQ</a>
       </div>
-      <a class="btn btn-primary btn-sm" href="https://play.google.com/store/apps/details?id=com.sprintapps.digithunt" target="_blank" rel="noopener noreferrer">Get the app</a>
+      <a class="btn btn-sm k-cyan" href="https://play.google.com/store/apps/details?id=com.sprintapps.digithunt" target="_blank" rel="noopener noreferrer">Get the app</a>
     </nav>
   </header>
 
@@ -114,27 +174,35 @@
     <!-- ══════════════════════════════════════════════════════════
          HERO: a playable practice puzzle
          ══════════════════════════════════════════════════════════ -->
-    <section class="hero" aria-labelledby="hero-title">
+    <section class="stage hero" aria-labelledby="hero-title">
       <div class="container hero-grid">
 
         <div class="hero-copy">
-          <h1 id="hero-title">Crack the secret number.</h1>
+          <h1 id="hero-title" class="extrude">
+            <span class="ln">Crack the</span>
+            <span class="ln"><span class="tw k-yellow">secret</span> <span class="tw k-green">code</span></span>
+          </h1>
           <p class="lead">Digit Hunt is a daily number puzzle for Android. Make a guess, read the colored clues and find the code before your guesses run out.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.sprintapps.digithunt" target="_blank" rel="noopener noreferrer">
+            <a class="btn k-cyan" href="https://play.google.com/store/apps/details?id=com.sprintapps.digithunt" target="_blank" rel="noopener noreferrer">
               <svg aria-hidden="true"><use href="#icon-play"/></svg>
               Get it on Google Play
             </a>
-            <a class="btn btn-ghost" href="#how-to-play">How to play</a>
           </div>
           <ul class="hero-facts">
-            <li>Free to play</li>
-            <li>A new puzzle every day</li>
-            <li>300 campaign levels</li>
+            <li><span class="tile k-gold" aria-hidden="true"></span>Free to play</li>
+            <li><span class="tile k-cyan" aria-hidden="true"></span>A new Daily Hunt every day</li>
+            <li><span class="tile k-indigo" aria-hidden="true"></span>300 levels in 10 worlds</li>
           </ul>
         </div>
 
         <div class="hero-board">
+          <span class="prop prop-tile-b tile k-yellow" aria-hidden="true">7</span>
+          <span class="prop prop-tile-a tile k-green" aria-hidden="true">4</span>
+          <svg class="prop prop-spark prop-spark-a" viewBox="0 0 100 100" aria-hidden="true"><use href="#spark"/></svg>
+          <svg class="prop prop-spark prop-spark-b" viewBox="0 0 100 100" aria-hidden="true"><use href="#spark"/></svg>
+          <svg class="prop prop-coin" viewBox="0 0 100 112" aria-hidden="true"><use href="#coin"/></svg>
+
           <div class="game" id="game">
             <div class="game-head">
               <h2 class="game-title">Practice puzzle</h2>
@@ -142,18 +210,18 @@
             </div>
 
             <div class="board" role="group" aria-label="Practice board">
-              <div class="row" role="group" aria-label="Guess 1, empty"><span class="tile" aria-hidden="true"></span><span class="tile" aria-hidden="true"></span><span class="tile" aria-hidden="true"></span><span class="tile" aria-hidden="true"></span></div>
-              <div class="row" role="group" aria-label="Guess 2, empty"><span class="tile" aria-hidden="true"></span><span class="tile" aria-hidden="true"></span><span class="tile" aria-hidden="true"></span><span class="tile" aria-hidden="true"></span></div>
-              <div class="row" role="group" aria-label="Guess 3, empty"><span class="tile" aria-hidden="true"></span><span class="tile" aria-hidden="true"></span><span class="tile" aria-hidden="true"></span><span class="tile" aria-hidden="true"></span></div>
-              <div class="row" role="group" aria-label="Guess 4, empty"><span class="tile" aria-hidden="true"></span><span class="tile" aria-hidden="true"></span><span class="tile" aria-hidden="true"></span><span class="tile" aria-hidden="true"></span></div>
-              <div class="row" role="group" aria-label="Guess 5, empty"><span class="tile" aria-hidden="true"></span><span class="tile" aria-hidden="true"></span><span class="tile" aria-hidden="true"></span><span class="tile" aria-hidden="true"></span></div>
-              <div class="row" role="group" aria-label="Guess 6, empty"><span class="tile" aria-hidden="true"></span><span class="tile" aria-hidden="true"></span><span class="tile" aria-hidden="true"></span><span class="tile" aria-hidden="true"></span></div>
+              <div class="row" role="group" aria-label="Guess 1, empty"><span class="tile" data-state="empty" aria-hidden="true"></span><span class="tile" data-state="empty" aria-hidden="true"></span><span class="tile" data-state="empty" aria-hidden="true"></span><span class="tile" data-state="empty" aria-hidden="true"></span></div>
+              <div class="row" role="group" aria-label="Guess 2, empty"><span class="tile" data-state="empty" aria-hidden="true"></span><span class="tile" data-state="empty" aria-hidden="true"></span><span class="tile" data-state="empty" aria-hidden="true"></span><span class="tile" data-state="empty" aria-hidden="true"></span></div>
+              <div class="row" role="group" aria-label="Guess 3, empty"><span class="tile" data-state="empty" aria-hidden="true"></span><span class="tile" data-state="empty" aria-hidden="true"></span><span class="tile" data-state="empty" aria-hidden="true"></span><span class="tile" data-state="empty" aria-hidden="true"></span></div>
+              <div class="row" role="group" aria-label="Guess 4, empty"><span class="tile" data-state="empty" aria-hidden="true"></span><span class="tile" data-state="empty" aria-hidden="true"></span><span class="tile" data-state="empty" aria-hidden="true"></span><span class="tile" data-state="empty" aria-hidden="true"></span></div>
+              <div class="row" role="group" aria-label="Guess 5, empty"><span class="tile" data-state="empty" aria-hidden="true"></span><span class="tile" data-state="empty" aria-hidden="true"></span><span class="tile" data-state="empty" aria-hidden="true"></span><span class="tile" data-state="empty" aria-hidden="true"></span></div>
+              <div class="row" role="group" aria-label="Guess 6, empty"><span class="tile" data-state="empty" aria-hidden="true"></span><span class="tile" data-state="empty" aria-hidden="true"></span><span class="tile" data-state="empty" aria-hidden="true"></span><span class="tile" data-state="empty" aria-hidden="true"></span></div>
             </div>
 
-            <div class="game-status" id="game-status">Type 4 digits, then press Guess.</div>
+            <div class="game-status" id="game-status">Type 4 digits, then press Enter.</div>
             <p class="visually-hidden" id="game-announcer" aria-live="polite"></p>
 
-            <!-- Same layout as the in-app DigitHuntKeyboard: 1–5, 6–0, then Clear / Delete / Guess -->
+            <!-- Same layout as the in-app keypad: 1–5, 6–0, then Clear / Delete / Enter -->
             <div class="keypad">
               <div class="keys">
                 <button type="button" class="key" data-digit="1">1</button>
@@ -172,8 +240,15 @@
                 <button type="button" class="key key-word" data-action="delete" aria-label="Delete">
                   <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M22 3H7c-.69 0-1.23.35-1.59.88L0 12l5.41 8.11c.36.53.9.89 1.59.89h15c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H7.07L2.4 12l4.66-7H22v14zm-11.59-2L14 13.41 17.59 17 19 15.59 15.41 12 19 8.41 17.59 7 14 10.59 10.41 7 9 8.41 12.59 12 9 15.59z"/></svg>
                 </button>
-                <button type="button" class="key key-word key-guess" data-action="guess">Guess</button>
+                <button type="button" class="key key-word key-enter" data-action="guess">Enter</button>
               </div>
+            </div>
+
+            <div class="game-foot">
+              <button type="button" class="switch" id="colorblind-switch" aria-pressed="false">
+                <span class="switch-track" aria-hidden="true"></span>
+                Colorblind colors
+              </button>
             </div>
           </div>
         </div>
@@ -188,12 +263,12 @@
     <section class="section" id="how-to-play" aria-labelledby="howto-title">
       <div class="container">
         <div class="section-head">
-          <h2 id="howto-title">Every guess gives you clues</h2>
+          <h2 id="howto-title">Every guess leaves clues</h2>
           <p>After you guess, each tile changes color. Here is one guess and what it tells you.</p>
         </div>
 
         <div class="howto">
-          <div class="example" role="img" aria-label="Example guess 3 8 1 6: the 3 is green, the 8 is grey, the 1 is yellow and the 6 is grey">
+          <div class="example" data-example role="img" aria-label="Example guess 3 8 1 6: the 3 is green, the 8 is grey, the 1 is yellow and the 6 is grey">
             <span class="tile" data-state="correct">3</span>
             <span class="tile" data-state="absent">8</span>
             <span class="tile" data-state="present">1</span>
@@ -203,21 +278,75 @@
           <div>
             <ul class="legend">
               <li>
-                <i class="swatch swatch-correct" aria-hidden="true"></i>
-                <div><strong>Green: right digit, right spot</strong><span>The code starts with 3.</span></div>
+                <span class="tile" data-state="correct" aria-hidden="true"></span>
+                <div><strong><span data-clue-word="correct">Green</span>: right digit, right spot</strong><span>The code starts with 3.</span></div>
               </li>
               <li>
-                <i class="swatch swatch-present" aria-hidden="true"></i>
-                <div><strong>Yellow: right digit, wrong spot</strong><span>There's a 1 in the code, just not third.</span></div>
+                <span class="tile" data-state="present" aria-hidden="true"></span>
+                <div><strong><span data-clue-word="present">Yellow</span>: right digit, wrong spot</strong><span>There's a 1 in the code, just not third.</span></div>
               </li>
               <li>
-                <i class="swatch swatch-absent" aria-hidden="true"></i>
+                <span class="tile" data-state="absent" aria-hidden="true"></span>
                 <div><strong>Grey: not in the code</strong><span>No 8 and no 6 anywhere.</span></div>
               </li>
             </ul>
-            <p class="howto-note">Harder puzzles can use the same digit twice, so a digit that lit up once might still appear again.</p>
+            <p class="howto-note">Harder puzzles can use the same digit twice, so a digit that lit up once might still appear again. Colorblind mode swaps green and yellow for blue and orange.</p>
           </div>
         </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════════
+         SCREENS: real captures from the app
+         ══════════════════════════════════════════════════════════ -->
+    <section class="section" id="screens" aria-labelledby="screens-title">
+      <div class="container rail-head">
+        <div class="section-head">
+          <h2 id="screens-title">Take a look inside</h2>
+          <p>Every screen is drawn like the board: chunky tiles, gold Digits and a flame for your streak.</p>
+        </div>
+        <div class="rail-nav" data-rail-nav hidden>
+          <button type="button" class="btn btn-sm k-typed" data-rail="prev" aria-label="Previous screens" aria-controls="screens-rail">
+            <svg aria-hidden="true"><use href="#icon-back"/></svg>
+          </button>
+          <button type="button" class="btn btn-sm k-typed" data-rail="next" aria-label="More screens" aria-controls="screens-rail">
+            <svg aria-hidden="true"><use href="#icon-arrow"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="rail" id="screens-rail" tabindex="0" role="region" aria-label="App screens, scrolls sideways">
+        <ul class="rail-track">
+          <li class="shot"><figure>
+            <div class="phone"><img src="assets/screens/hunt.webp" width="540" height="1132" loading="lazy" decoding="async" alt="A campaign level one guess from solved: rows of green, yellow and grey tiles above a keypad whose keys show the same clues."></div>
+            <figcaption><strong>The board</strong><span>Each guess lights up. The keypad keeps track of every digit for you.</span></figcaption>
+          </figure></li>
+          <li class="shot"><figure>
+            <div class="phone"><img src="assets/screens/daily.webp" width="540" height="1132" loading="lazy" decoding="async" alt="The Home screen with today's Daily Hunt solved in 4 of 6 guesses, a 13 day streak and the next campaign level."></div>
+            <figcaption><strong>Daily Hunt</strong><span>One code for every player each day, and a countdown to the next one.</span></figcaption>
+          </figure></li>
+          <li class="shot"><figure>
+            <div class="phone"><img src="assets/screens/cracked.webp" width="540" height="1132" loading="lazy" decoding="async" alt="The results screen: Code cracked with three stars, then a hunt analysis going from 10,000 possible codes to 1, with Skill 91 and Luck 61."></div>
+            <figcaption><strong>Hunt analysis</strong><span>See how many codes each guess ruled out, with a Skill and a Luck score.</span></figcaption>
+          </figure></li>
+          <li class="shot"><figure>
+            <div class="phone"><img src="assets/screens/campaign.webp" width="540" height="1132" loading="lazy" decoding="async" alt="The campaign map of Echo Valley, a winding path of numbered levels with stars under the ones already cleared."></div>
+            <figcaption><strong>Campaign map</strong><span>A path through 10 worlds, with up to three stars on every level.</span></figcaption>
+          </figure></li>
+          <li class="shot"><figure>
+            <div class="phone"><img src="assets/screens/streak.webp" width="540" height="1132" loading="lazy" decoding="async" alt="The Streak screen: a 12 day streak under a pixel flame, streak milestones and a calendar of the last five weeks."></div>
+            <figcaption><strong>Streaks</strong><span>Milestones, a calendar of your runs and Streak Shields for missed days.</span></figcaption>
+          </figure></li>
+          <li class="shot"><figure>
+            <div class="phone"><img src="assets/screens/achievements.webp" width="540" height="1132" loading="lazy" decoding="async" alt="The Achievements screen: 9 of 24 unlocked, the three closest to unlocking with progress bars, and medal milestones."></div>
+            <figcaption><strong>Achievements</strong><span>24 to unlock, each paying bonus Digits.</span></figcaption>
+          </figure></li>
+          <li class="shot"><figure>
+            <div class="phone"><img src="assets/screens/skin_neon.webp" width="540" height="1132" loading="lazy" decoding="async" alt="The same board in the Neon skin: glowing outlined tiles on black."></div>
+            <figcaption><strong>Board skins</strong><span>Neon, Blueprint, Slate and more, bought with the Digits you earn.</span></figcaption>
+          </figure></li>
+        </ul>
       </div>
     </section>
 
@@ -229,12 +358,12 @@
       <div class="container">
         <div class="section-head">
           <h2 id="modes-title">Three ways to play</h2>
-          <p>A shared puzzle every day, a 300-level campaign, and endless puzzles at the difficulty you choose.</p>
+          <p>A shared puzzle every day, a 300-level campaign, and endless puzzles at the length you choose.</p>
         </div>
 
         <div class="modes">
           <article class="panel mode-daily">
-            <h3 class="mode-title">Daily Challenge</h3>
+            <h3 class="mode-title"><span class="tile k-cyan" aria-hidden="true"></span>Daily Hunt</h3>
             <p>One puzzle a day with the same code for every player: 4 digits, 6 guesses. Share your result with friends without giving the answer away.</p>
             <div class="hunt" data-hunt-only hidden>
               <p class="hunt-label">Today's puzzle is Daily Hunt</p>
@@ -243,31 +372,31 @@
           </article>
 
           <article class="panel mode-infinite">
-            <h3 class="mode-title">Infinite</h3>
-            <p>Endless puzzles at the difficulty you pick. Easy never repeats a digit. From Normal up, repeats get more likely.</p>
+            <h3 class="mode-title"><span class="tile k-teal" aria-hidden="true"></span>Infinite</h3>
+            <p>Endless puzzles at the length you pick. Easy never repeats a digit. From Normal up, repeats get more likely.</p>
             <ul class="levels">
-              <li class="level"><span class="level-name">Easy</span><span class="digits" aria-hidden="true"><i></i><i></i><i></i></span><span class="level-digits">3 digits</span></li>
-              <li class="level"><span class="level-name">Normal</span><span class="digits" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="level-digits">4 digits</span></li>
-              <li class="level"><span class="level-name">Hard</span><span class="digits" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span class="level-digits">5 digits</span></li>
-              <li class="level"><span class="level-name">Expert</span><span class="digits" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="level-digits">6 digits</span></li>
+              <li class="level"><span class="level-name">Easy</span><span class="pips" aria-hidden="true"><i></i><i></i><i></i></span><span class="level-digits">3 digits</span></li>
+              <li class="level"><span class="level-name">Normal</span><span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="level-digits">4 digits</span></li>
+              <li class="level"><span class="level-name">Hard</span><span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span class="level-digits">5 digits</span></li>
+              <li class="level"><span class="level-name">Expert</span><span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="level-digits">6 digits</span></li>
             </ul>
           </article>
 
-          <!-- World configs from LevelGenerator.WORLD_CONFIGS -->
+          <!-- World configs from LevelGenerator.WORLD_CONFIGS, names from world_N_name -->
           <article class="panel mode-campaign">
-            <h3 class="mode-title">Campaign</h3>
-            <p>Ten worlds of 30 levels each. Codes get longer, guesses get tighter, and later worlds bring repeated digits and palindromes.</p>
+            <h3 class="mode-title"><span class="tile k-indigo" aria-hidden="true"></span>Campaign</h3>
+            <p>Ten worlds of 30 levels each. Codes get longer, guesses get tighter, and later worlds bring repeated digits and palindromes. Win with no hints and guesses to spare for all three stars.</p>
             <ol class="worlds">
-              <li class="world"><span class="world-num">1</span><span class="world-name">The Foothills</span><span class="world-detail">2 digits, 4 guesses</span><span class="digits" aria-hidden="true"><i></i><i></i></span></li>
-              <li class="world"><span class="world-num">2</span><span class="world-name">Number Jungle</span><span class="world-detail">3 digits, 5 guesses</span><span class="digits" aria-hidden="true"><i></i><i></i><i></i></span></li>
-              <li class="world"><span class="world-num">3</span><span class="world-name">Cipher Canyon</span><span class="world-detail">4 digits, 6 guesses</span><span class="digits" aria-hidden="true"><i></i><i></i><i></i><i></i></span></li>
-              <li class="world"><span class="world-num">4</span><span class="world-name">Mirror Mines</span><span class="world-detail">3 digits, 6 guesses, repeated digits</span><span class="digits" aria-hidden="true"><i></i><i></i><i></i></span></li>
-              <li class="world"><span class="world-num">5</span><span class="world-name">Echo Valley</span><span class="world-detail">4 digits, 7 guesses, repeated digits</span><span class="digits" aria-hidden="true"><i></i><i></i><i></i><i></i></span></li>
-              <li class="world"><span class="world-num">6</span><span class="world-name">Quick Draw</span><span class="world-detail">3 digits, only 4 guesses</span><span class="digits" aria-hidden="true"><i></i><i></i><i></i></span></li>
-              <li class="world"><span class="world-num">7</span><span class="world-name">Summit Ridge</span><span class="world-detail">5 digits, 7 guesses</span><span class="digits" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span></li>
-              <li class="world"><span class="world-num">8</span><span class="world-name">Looking Glass</span><span class="world-detail">4 digits, 6 guesses, codes that read the same both ways</span><span class="digits" aria-hidden="true"><i></i><i></i><i></i><i></i></span></li>
-              <li class="world"><span class="world-num">9</span><span class="world-name">Quantum Fields</span><span class="world-detail">5 digits, 7 guesses, repeated digits</span><span class="digits" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span></li>
-              <li class="world"><span class="world-num">10</span><span class="world-name">Oracle's Peak</span><span class="world-detail">6 digits, 8 guesses, repeated digits</span><span class="digits" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span></li>
+              <li class="world"><span class="tile k-indigo">1</span><span class="world-name">The Foothills</span><span class="world-detail">2 digits, 4 guesses</span><span class="pips" aria-hidden="true"><i></i><i></i></span></li>
+              <li class="world"><span class="tile k-indigo">2</span><span class="world-name">Number Jungle</span><span class="world-detail">3 digits, 5 guesses</span><span class="pips" aria-hidden="true"><i></i><i></i><i></i></span></li>
+              <li class="world"><span class="tile k-indigo">3</span><span class="world-name">Cipher Canyon</span><span class="world-detail">4 digits, 6 guesses</span><span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i></span></li>
+              <li class="world"><span class="tile k-indigo">4</span><span class="world-name">Mirror Mines</span><span class="world-detail">3 digits, 6 guesses, repeated digits</span><span class="pips" aria-hidden="true"><i></i><i></i><i></i></span></li>
+              <li class="world"><span class="tile k-indigo">5</span><span class="world-name">Echo Valley</span><span class="world-detail">4 digits, 7 guesses, repeated digits</span><span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i></span></li>
+              <li class="world"><span class="tile k-indigo">6</span><span class="world-name">Quick Draw</span><span class="world-detail">3 digits, only 4 guesses</span><span class="pips" aria-hidden="true"><i></i><i></i><i></i></span></li>
+              <li class="world"><span class="tile k-indigo">7</span><span class="world-name">Summit Ridge</span><span class="world-detail">5 digits, 7 guesses</span><span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span></li>
+              <li class="world"><span class="tile k-indigo">8</span><span class="world-name">Looking Glass</span><span class="world-detail">4 digits, 6 guesses, codes that read the same both ways</span><span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i></span></li>
+              <li class="world"><span class="tile k-indigo">9</span><span class="world-name">Quantum Fields</span><span class="world-detail">5 digits, 7 guesses, repeated digits</span><span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span></li>
+              <li class="world"><span class="tile k-indigo">10</span><span class="world-name">Oracle's Peak</span><span class="world-detail">6 digits, 8 guesses, repeated digits</span><span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span></li>
             </ol>
           </article>
         </div>
@@ -276,7 +405,7 @@
 
 
     <!-- ══════════════════════════════════════════════════════════
-         STREAKS, HINTS, THEMES
+         STREAKS, HINTS, ANALYSIS, ACHIEVEMENTS, LOOKS, REMINDERS
          ══════════════════════════════════════════════════════════ -->
     <section class="section" id="streaks" aria-labelledby="streaks-title">
       <div class="container">
@@ -289,20 +418,20 @@
           <article class="habit">
             <div class="habit-visual">
               <div class="week" role="img" aria-label="Six days of streak, then a Streak Shield on day seven">
-                <span class="tile">1</span><span class="tile">2</span><span class="tile">3</span><span class="tile">4</span><span class="tile">5</span><span class="tile">6</span>
-                <span class="tile tile-shield"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></span>
+                <span class="tile k-flame">1</span><span class="tile k-flame">2</span><span class="tile k-flame">3</span><span class="tile k-flame">4</span><span class="tile k-flame">5</span><span class="tile k-flame">6</span>
+                <svg class="shield" viewBox="0 0 100 112" aria-hidden="true"><use href="#shield"/></svg>
               </div>
             </div>
             <h3>Streak Shields</h3>
-            <p>Solve the Daily Challenge every day to grow your streak. Every 7-day run earns a Streak Shield, which saves your streak on a day you miss.</p>
+            <p>Solve the Daily Hunt every day to grow your streak. Every 7-day run earns a Streak Shield, which saves your streak on a day you miss. You can hold two at a time.</p>
           </article>
 
           <article class="habit">
             <div class="habit-visual">
-              <ul class="hint-chips" aria-label="Hints">
-                <li>Reveal a cell</li>
-                <li>Eliminate a digit</li>
-                <li>Extra guess</li>
+              <ul class="chips" aria-label="Hints">
+                <li class="chip"><svg viewBox="0 0 100 112" aria-hidden="true"><use href="#coin"/></svg>Reveal Cell</li>
+                <li class="chip"><svg viewBox="0 0 100 112" aria-hidden="true"><use href="#coin"/></svg>Remove Digit</li>
+                <li class="chip"><svg viewBox="0 0 100 112" aria-hidden="true"><use href="#coin"/></svg>+1 Guess</li>
               </ul>
             </div>
             <h3>Hints when you're stuck</h3>
@@ -311,19 +440,53 @@
 
           <article class="habit">
             <div class="habit-visual">
-              <!-- TileColorThemes, dark-mode values, plus the colorblind pair -->
+              <div class="analysis" role="img" aria-label="From 10,000 possible codes down to 1">
+                <p class="analysis-num">10,000<small>possible codes</small></p>
+                <svg class="analysis-arrow" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow"/></svg>
+                <p class="analysis-num analysis-num--won">1<small>cracked</small></p>
+              </div>
+            </div>
+            <h3>Hunt analysis</h3>
+            <p>After every hunt, see how many codes each guess ruled out, how your Skill and Luck scored, and which guess a solver would have played.</p>
+          </article>
+
+          <article class="habit">
+            <div class="habit-visual">
+              <div class="medals" role="img" aria-label="Achievement medals, 24 to unlock">
+                <svg viewBox="0 0 100 110" aria-hidden="true"><use href="#hex-gold"/></svg>
+                <svg viewBox="0 0 100 110" aria-hidden="true"><use href="#hex-silver"/></svg>
+                <span class="medal-count" aria-hidden="true">24</span>
+              </div>
+            </div>
+            <h3>Achievements</h3>
+            <p>24 achievements, from your first cracked code to a 100-day streak. Each one pays bonus Digits.</p>
+          </article>
+
+          <article class="habit">
+            <div class="habit-visual">
+              <!-- TileColorThemes, dark-mode values -->
               <ul class="swatches" aria-label="Tile color themes">
-                <li><span aria-hidden="true"><i style="--c:#6BEB6B"></i><i style="--c:#FFD60A"></i></span>Classic</li>
-                <li><span aria-hidden="true"><i style="--c:#FF7A3D"></i><i style="--c:#B24BF3"></i></span>Sunset</li>
-                <li><span aria-hidden="true"><i style="--c:#00C2D1"></i><i style="--c:#FF4560"></i></span>Ocean</li>
-                <li><span aria-hidden="true"><i style="--c:#D7D9E0"></i><i style="--c:#3A3D4A"></i></span>Mono</li>
-                <li><span aria-hidden="true"><i style="--c:#1FD9F5"></i><i style="--c:#FF4D94"></i></span>Electric</li>
-                <li><span aria-hidden="true"><i style="--c:#8AFF4D"></i><i style="--c:#FF3D7A"></i></span>Berry</li>
-                <li><span aria-hidden="true"><i style="--c:#0066CC"></i><i style="--c:#E87722"></i></span>Colorblind</li>
+                <li><span aria-hidden="true"><i class="tile" style="--th:#C6FFB8;--tf:#6BEB6B;--tl:#3FCB55;--tp:#1F8E3A"></i><i class="tile" style="--th:#FFF6B0;--tf:#FFD60A;--tl:#F2B500;--tp:#A87A00"></i></span>Classic</li>
+                <li><span aria-hidden="true"><i class="tile" style="--th:#FFD0B0;--tf:#FF7A3D;--tl:#F05F1F;--tp:#A43A08"></i><i class="tile" style="--th:#E6C2FF;--tf:#B24BF3;--tl:#9632DD;--tp:#5C178F"></i></span>Sunset</li>
+                <li><span aria-hidden="true"><i class="tile" style="--th:#B0F6FF;--tf:#00C2D1;--tl:#00A3B5;--tp:#005F6B"></i><i class="tile" style="--th:#FFC0C8;--tf:#FF4560;--tl:#E62E4A;--tp:#8F1023"></i></span>Ocean</li>
+                <li><span aria-hidden="true"><i class="tile" style="--th:#FFFFFF;--tf:#D7D9E0;--tl:#BFC2CC;--tp:#7A7D8A"></i><i class="tile" style="--th:#B5B8C6;--tf:#8D90A0;--tl:#747789;--tp:#454857"></i></span>Monochrome</li>
+                <li><span aria-hidden="true"><i class="tile" style="--th:#C9F7FF;--tf:#1FD9F5;--tl:#0BB3D6;--tp:#00708A"></i><i class="tile" style="--th:#FFC2DB;--tf:#FF4D94;--tl:#E8307A;--tp:#9E1450"></i></span>Electric</li>
+                <li><span aria-hidden="true"><i class="tile" style="--th:#D9FFC2;--tf:#8AFF4D;--tl:#6BE02E;--tp:#2F7A0A"></i><i class="tile" style="--th:#FFC0D2;--tf:#FF3D7A;--tl:#E62563;--tp:#8F0B35"></i></span>Berry</li>
               </ul>
             </div>
             <h3>Themes and board skins</h3>
-            <p>Pick tile colors and board skins in the Shop. Colorblind mode swaps green and yellow for blue and orange.</p>
+            <p>Change your tile colors and board skin in the Shop, with the Digits you earn by playing.</p>
+          </article>
+
+          <article class="habit">
+            <div class="habit-visual">
+              <ul class="chips" aria-label="Reminders">
+                <li class="chip chip-time"><b>9:00 AM</b>Daily Hunt</li>
+                <li class="chip chip-time"><b>7:00 PM</b>Streak at risk</li>
+              </ul>
+            </div>
+            <h3>Reminders, if you want them</h3>
+            <p>A nudge in the morning if you haven't played, and a warning in the evening when your streak might break. Turn each one on or off in Settings.</p>
           </article>
         </div>
       </div>
@@ -337,7 +500,7 @@
       <div class="container">
         <div class="section-head">
           <h2 id="pro-title">Free to play</h2>
-          <p>Every mode and all 300 levels are free. Digit Hunt Pro is a one-time purchase for players who'd rather not see ads between puzzles.</p>
+          <p>Every mode and all 300 levels are free. Digit Hunt Pro is a one-time purchase for players who'd rather skip the ads and play anywhere.</p>
         </div>
 
         <div class="plans">
@@ -345,25 +508,39 @@
             <h3>Free</h3>
             <p class="plan-sub">Everything you need to play</p>
             <ul>
-              <li>Daily Challenge, Campaign and Infinite</li>
-              <li>Hints, paid for with the Digits you earn</li>
-              <li>Optional ads you can watch for Digits, a hint or an extra guess</li>
-              <li class="plan-con">Ads between some puzzles</li>
+              <li><span class="tile k-cyan" aria-hidden="true"></span>Daily Hunt, Campaign and Infinite, every level</li>
+              <li><span class="tile k-cyan" aria-hidden="true"></span>Hints, Streak Shields, themes and skins, bought with the Digits you earn</li>
+              <li><span class="tile k-cyan" aria-hidden="true"></span>Optional ads you can watch for Digits, a free hint, an extra guess or double rewards</li>
+              <li><span class="socket tile" aria-hidden="true"></span>Ads between some puzzles and on the Home screen</li>
+              <li><span class="socket tile" aria-hidden="true"></span>Needs an internet connection to play</li>
             </ul>
           </article>
 
           <article class="panel plan plan-pro">
-            <h3>Digit Hunt Pro</h3>
-            <p class="plan-sub">One-time purchase through Google Play</p>
+            <div class="plan-pro-head">
+              <img src="assets/pro-icon.webp" width="256" height="256" alt="" loading="lazy" decoding="async">
+              <div>
+                <h3>Digit Hunt Pro</h3>
+                <p class="plan-sub">One payment through Google Play. No subscription.</p>
+              </div>
+            </div>
             <ul>
-              <li>No ads between puzzles</li>
-              <li>Every tile theme and board skin unlocked</li>
-              <li>Bonus Digits to spend right away</li>
-              <li>Yours on any phone signed in to the same Google account</li>
+              <li><span class="tile k-gold" aria-hidden="true"></span>No ads between puzzles or on the Home screen</li>
+              <li><span class="tile k-gold" aria-hidden="true"></span>Play every mode offline</li>
+              <li><span class="tile k-gold" aria-hidden="true"></span>The Prism theme and Facet skin, only for Pro: violet and cyan tiles with cut corners</li>
+              <li><span class="tile k-gold" aria-hidden="true"></span>A gold Pro app icon for your home screen</li>
+              <li><span class="tile k-gold" aria-hidden="true"></span>The full hunt analysis after every hunt, with no ad to watch</li>
+              <li><span class="tile k-gold" aria-hidden="true"></span>A bonus of Digits to spend in the Shop right away</li>
+              <li><span class="tile k-gold" aria-hidden="true"></span>Yours on any phone signed in to the same Google account</li>
             </ul>
             <p class="plan-note">Buy it from the Pro screen in the app.</p>
           </article>
         </div>
+
+        <p class="packs">
+          <svg viewBox="0 0 100 112" aria-hidden="true"><use href="#coin"/></svg>
+          <span><strong>Digit packs.</strong> Running low? Top up your Digits in the Shop. Everything they buy can also be earned by playing.</span>
+        </p>
       </div>
     </section>
 
@@ -383,8 +560,8 @@
             <h3>Stays on your phone</h3>
             <ul>
               <li>Your progress, streak and achievements</li>
-              <li>Your guesses and stats</li>
-              <li>Your settings and the cosmetics you own</li>
+              <li>Your guesses, stats and Digits</li>
+              <li>Your settings and the looks you own</li>
             </ul>
           </div>
           <div class="privacy-col">
@@ -392,7 +569,8 @@
             <ul>
               <li>Ads from AdMob, with a consent form where the law requires one</li>
               <li>Anonymous gameplay analytics and crash reports from Firebase</li>
-              <li>The Pro purchase, through Google Play</li>
+              <li>Purchases of Pro and Digit packs, through Google Play</li>
+              <li>A date check with Google that keeps the Daily Hunt fair</li>
             </ul>
           </div>
         </div>
@@ -414,35 +592,43 @@
         <div class="faq">
           <details>
             <summary>Is Digit Hunt free?</summary>
-            <div class="answer"><p>Yes. Every mode and level is free to play, with ads. Digit Hunt Pro is an optional one-time purchase that removes the ads between puzzles.</p></div>
+            <div class="answer"><p>Yes. Every mode and level is free to play, with ads. Digit Hunt Pro is an optional one-time purchase, and Digit packs are optional top-ups for your Digits.</p></div>
           </details>
           <details>
-            <summary>Does everyone get the same Daily Challenge?</summary>
-            <div class="answer"><p>Yes. Every player gets the same code on the same day, numbered as Daily Hunt #1, #2 and so on. When you share your result, friends see your colored tiles, not the answer.</p></div>
+            <summary>Does everyone get the same Daily Hunt?</summary>
+            <div class="answer"><p>Yes. Every player gets the same code on the same day, numbered Daily Hunt #1, #2 and so on. When you share your result, friends see your colored tiles, not the answer.</p></div>
           </details>
           <details>
             <summary>Can a digit appear more than once?</summary>
-            <div class="answer"><p>In harder puzzles, yes. The Daily Challenge, several campaign worlds and Infinite from Normal up can use the same digit twice.</p></div>
+            <div class="answer"><p>In harder puzzles, yes. The Daily Hunt, several campaign worlds and Infinite from Normal up can use the same digit twice.</p></div>
           </details>
           <details>
             <summary>What happens if I miss a day?</summary>
-            <div class="answer"><p>If you have a Streak Shield, it covers the missed day and your streak continues. You earn a shield for every 7-day run.</p></div>
+            <div class="answer"><p>If you have a Streak Shield, it covers the missed day and your streak continues. You earn one for every 7-day run and can hold two. You can also get one in the Shop for Digits.</p></div>
           </details>
           <details>
             <summary>Do I need an internet connection?</summary>
-            <div class="answer"><p>No. Puzzles are made on your phone, so you can play offline. You need a connection to watch an ad for Digits or to buy Pro.</p></div>
+            <div class="answer"><p>For the free game, yes: ads keep Digit Hunt free, so it needs a connection to start a puzzle. If you lose signal mid-puzzle, it pauses until you're back online.</p><p>Digit Hunt Pro plays every mode offline.</p></div>
           </details>
           <details>
             <summary>Is there a colorblind mode?</summary>
-            <div class="answer"><p>Yes. Turn on Color Blind Mode in Settings to use blue and orange instead of green and yellow on the tiles.</p></div>
+            <div class="answer"><p>Yes. Turn on Color Blind Mode in Settings to use blue and orange instead of green and yellow on the tiles. You can try it on the practice puzzle at the top of this page.</p></div>
           </details>
           <details>
             <summary>Does Pro remove every ad?</summary>
-            <div class="answer"><p>Pro removes the ads that play between puzzles. Rewarded ads stay available, and only play when you choose to watch one for Digits or a hint.</p></div>
+            <div class="answer"><p>Pro removes the ads between puzzles and the ad on the Home screen. Rewarded ads stay available, and only play when you choose to watch one for Digits, a hint or an extra guess.</p></div>
+          </details>
+          <details>
+            <summary>Does Pro unlock every theme and skin?</summary>
+            <div class="answer"><p>No. Pro comes with its own look, the Prism theme and Facet skin, which can't be bought with Digits, plus a gold app icon and a bonus of Digits. The other themes and skins are in the Shop for everyone, Pro or not.</p></div>
           </details>
           <details>
             <summary>I got a new phone. How do I get Pro back?</summary>
             <div class="answer"><p>Sign in with the Google account you bought it with, open the Pro screen and tap Restore purchase.</p></div>
+          </details>
+          <details>
+            <summary>What happens to my Digits if I uninstall?</summary>
+            <div class="answer"><p>Your game, Digits included, is saved on your phone, so uninstalling or clearing the app's storage deletes it. That includes Digits from Digit packs. Pro is the exception: Google Play keeps it with your account.</p></div>
           </details>
           <details>
             <summary>Which languages and Android versions are supported?</summary>
@@ -456,18 +642,21 @@
     <!-- ══════════════════════════════════════════════════════════
          CLOSING CALL TO ACTION
          ══════════════════════════════════════════════════════════ -->
-    <section class="section" aria-labelledby="cta-title">
-      <div class="container">
-        <div class="cta">
-          <div>
-            <h2 id="cta-title" data-hunt-heading>Today's puzzle is ready.</h2>
-            <p>Get Digit Hunt free on Google Play and start your streak today.</p>
-            <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.sprintapps.digithunt" target="_blank" rel="noopener noreferrer">
-              <svg aria-hidden="true"><use href="#icon-play"/></svg>
-              Get it on Google Play
-            </a>
-          </div>
-          <svg class="cta-mark" viewBox="0 0 72 72" aria-hidden="true"><use href="#logo-cells"/></svg>
+    <section class="stage cta-stage" aria-labelledby="cta-title">
+      <div class="container cta">
+        <div>
+          <h2 id="cta-title" class="extrude" data-hunt-heading>Today's puzzle is ready.</h2>
+          <p>Get Digit Hunt free on Google Play and start your streak today.</p>
+          <a class="btn k-cyan" href="https://play.google.com/store/apps/details?id=com.sprintapps.digithunt" target="_blank" rel="noopener noreferrer">
+            <svg aria-hidden="true"><use href="#icon-play"/></svg>
+            Get it on Google Play
+          </a>
+        </div>
+        <!-- The app icon's cipher grid as board tiles -->
+        <div class="cipher" aria-hidden="true">
+          <span class="tile k-cyan"></span><span class="socket"></span><span class="tile k-cyan"></span>
+          <span class="socket"></span><span class="tile k-magenta"></span><span class="socket"></span>
+          <span class="tile k-cyan"></span><span class="socket"></span><span class="tile k-cyan"></span>
         </div>
       </div>
     </section>
