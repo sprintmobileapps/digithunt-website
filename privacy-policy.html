@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Privacy Policy: Digit Hunt</title>
-  <meta name="description" content="Digit Hunt privacy policy. What stays on your device, what Google's ad, analytics and billing services collect, and the choices you have.">
+  <meta name="description" content="Digit Hunt privacy policy. What stays on your device, what Google's ad, analytics, billing and Play Games services collect, and the choices you have.">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0A0B14">
   <link rel="canonical" href="https://sprintmobileapps.github.io/digithunt-website/privacy-policy.html">
@@ -14,7 +14,7 @@
   <meta property="og:type"        content="website">
   <meta property="og:url"         content="https://sprintmobileapps.github.io/digithunt-website/privacy-policy.html">
   <meta property="og:title"       content="Privacy Policy: Digit Hunt">
-  <meta property="og:description" content="No account, no sign-up. Your game stays on your device. Read what AdMob, Firebase and Google Play collect.">
+  <meta property="og:description" content="No sign-up. Your game stays on your device. Read what AdMob, Firebase, Google Play and Play Games collect.">
   <meta property="og:image"       content="https://sprintmobileapps.github.io/digithunt-website/assets/og-image.png">
 
   <!-- Favicon: the 3×3 cipher tile mark from ic_launcher_foreground.xml -->
@@ -95,14 +95,15 @@
         <div class="panel policy-summary">
           <h2>In short</h2>
           <ul>
-            <li>There is no account. Digit Hunt never asks for your name, email, contacts, photos or location.</li>
+            <li>Digit Hunt has no account of its own. It never asks for your name, email, contacts, photos or location.</li>
             <li>Your progress, streak and settings are saved on your device.</li>
             <li>Google services handle ads (AdMob), anonymous analytics and crash reports (Firebase), and purchases of Pro and Digit packs (Google Play).</li>
+            <li>Signing in to Google Play Games is optional. It saves a copy of your achievements to your Play Games profile.</li>
           </ul>
         </div>
 
         <h2 id="what">1. What Digit Hunt is</h2>
-        <p>Digit Hunt is a number-guessing puzzle game published by Sprint Mobile Apps. There is no account or login, and the game never asks for your name, email address, contacts, photos, location or any other personal information.</p>
+        <p>Digit Hunt is a number-guessing puzzle game published by Sprint Mobile Apps. It has no account of its own and no sign-up, and the game never asks for your name, email address, contacts, photos, location or any other personal information. You can choose to sign in to Google Play Games to keep your achievements there (section 9).</p>
 
         <h2 id="device">2. Data stored on your device</h2>
         <p>Your game lives on your device:</p>
@@ -115,7 +116,7 @@
 
         <h2 id="analytics">3. Analytics and crash reporting</h2>
         <p>Digit Hunt uses two Google Firebase services to improve the game.</p>
-        <p><strong>Firebase Analytics</strong> records how the game is played: for example, that a puzzle was started, won or abandoned (with the mode, number of guesses, hints used and time taken), that a hint or rewarded ad was used, that Digits were earned or spent, that a streak continued, that a setting was changed, or that a result was shared (and to which app). It also keeps rough, bucketed traits such as your player level or streak length. These events are tied to an anonymous per-install identifier (the Firebase App Instance ID), not to your name or any account. Purchases of Digit Hunt Pro and of Digit packs are reported by Google Play to Firebase as purchase events.</p>
+        <p><strong>Firebase Analytics</strong> records how the game is played: for example, that a puzzle was started, won or abandoned (with the mode, number of guesses, hints used and time taken), that a hint or rewarded ad was used, that Digits were earned or spent, that a streak continued, that a setting was changed, that a result was shared (and to which app), or whether a Google Play Games sign-in you started worked. It also keeps rough, bucketed traits such as your player level or streak length, and whether you're signed in to Google Play Games. These events are tied to an anonymous per-install identifier (the Firebase App Instance ID), not to your name or any account. Purchases of Digit Hunt Pro and of Digit packs are reported by Google Play to Firebase as purchase events.</p>
         <p><strong>Firebase Crashlytics</strong> collects crash reports and error logs (stack traces, device model, Android version and app version) so we can find and fix bugs.</p>
         <p>Both are provided by Google and governed by <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">Firebase's privacy terms</a>.</p>
 
@@ -145,26 +146,35 @@
         <h2 id="ratings">8. Ratings</h2>
         <p>Digit Hunt may ask you to rate it using Google Play's in-app review prompt. Google Play handles the review; the app never sees your rating, your review or your account.</p>
 
-        <h2 id="children">9. Children</h2>
+        <h2 id="play-games">9. Google Play Games</h2>
+        <p>Digit Hunt can save your achievements to your <strong>Google Play Games</strong> profile. This is optional: the game, your progress and your achievements in the app work the same without it.</p>
+        <ul>
+          <li><strong>Signing in:</strong> if you already have a Play Games profile with automatic sign-in turned on, Google signs you in when the app starts. Otherwise nothing happens until you tap <strong>Sign in</strong> on the Achievements screen, and Google's own sign-in screen takes it from there. Digit Hunt never sees your password.</li>
+          <li><strong>What the app sends:</strong> which achievements you have unlocked and your progress towards the others. The rest of your game stays on your device.</li>
+          <li><strong>What the app reads:</strong> only whether you're signed in. Digit Hunt does not ask Play Games for your name, email address, gamer ID, friends or profile picture.</li>
+        </ul>
+        <p>Google keeps your Play Games profile and achievements with your Google account, and other players may see them depending on your Play Games profile settings. You can turn off automatic sign-in and change who sees your profile in the Play Store app (<em>profile icon → Settings → General → Play Games profile</em>). Read <a href="https://support.google.com/googleplay/answer/3129346" target="_blank" rel="noopener noreferrer">Google's guide to Play Games profile settings</a>.</p>
+
+        <h2 id="children">10. Children</h2>
         <p>Digit Hunt is not directed at children under 13 and does not knowingly collect data from children. If you believe a child has used the app and data was collected, contact us at the address below.</p>
 
-        <h2 id="permissions">10. Permissions</h2>
+        <h2 id="permissions">11. Permissions</h2>
         <div class="table-wrap">
           <table>
             <thead>
               <tr><th scope="col">Permission</th><th scope="col">Why</th></tr>
             </thead>
             <tbody>
-              <tr><td><code>INTERNET</code>, <code>ACCESS_NETWORK_STATE</code></td><td>Ads, analytics, crash reports, remote game settings, purchases, the date check in section 6, and checking whether you're online</td></tr>
+              <tr><td><code>INTERNET</code>, <code>ACCESS_NETWORK_STATE</code></td><td>Ads, analytics, crash reports, remote game settings, purchases, Google Play Games, the date check in section 6, and checking whether you're online</td></tr>
               <tr><td><code>POST_NOTIFICATIONS</code></td><td>Daily Challenge and streak reminders (Android 13 and later asks you first)</td></tr>
               <tr><td><code>com.google.android.gms.permission.AD_ID</code></td><td>Lets AdMob read the advertising ID described in section 4</td></tr>
               <tr><td><code>com.android.vending.BILLING</code></td><td>Buying Digit Hunt Pro and Digit packs through Google Play</td></tr>
             </tbody>
           </table>
         </div>
-        <p>The remaining permissions in the app (such as <code>WAKE_LOCK</code> and Android's ad-services permissions) are added by Google's libraries for the services above. Digit Hunt does not request camera, microphone, location, contacts or storage permissions.</p>
+        <p>The remaining permissions in the app (such as <code>WAKE_LOCK</code> and Android's ad-services permissions) are added by Google's libraries for the services above. Google Play Games needs no extra permissions. Digit Hunt does not request camera, microphone, location, contacts or storage permissions.</p>
 
-        <h2 id="services">11. Third-party services</h2>
+        <h2 id="services">12. Third-party services</h2>
         <div class="table-wrap">
           <table>
             <thead>
@@ -175,6 +185,7 @@
               <tr><td>Google Play Billing</td><td>Processing purchases (Pro and Digit packs)</td><td><a href="https://payments.google.com/payments/apis-secure/get_legal_document?ldo=0&amp;ldt=privacynotice" target="_blank" rel="noopener noreferrer">Google Payments</a></td></tr>
               <tr><td>Google (<code>www.google.com</code>)</td><td>The date check (section 6)</td><td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google</a></td></tr>
               <tr><td>Google Play In-App Review</td><td>The optional rating prompt</td><td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google</a></td></tr>
+              <tr><td>Google Play Games Services</td><td>Optional sign-in and achievements (section 9)</td><td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google</a></td></tr>
               <tr><td>Firebase Analytics</td><td>Gameplay analytics (section 3)</td><td><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">Firebase</a></td></tr>
               <tr><td>Firebase Crashlytics</td><td>Crash and error reporting (section 3)</td><td><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">Firebase</a></td></tr>
               <tr><td>Firebase Remote Config</td><td>Remote game and ad settings</td><td><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">Firebase</a></td></tr>
@@ -182,14 +193,14 @@
           </table>
         </div>
 
-        <h2 id="deletion">12. Data retention and deletion</h2>
-        <p>To delete everything Digit Hunt stores on your device, go to <em>Settings → Apps → Digit Hunt → Storage → Clear storage</em>, or uninstall the app. This also gives the app a new analytics ID, so earlier analytics and crash data is no longer linked to your device. Firebase deletes Analytics event data within 14 months and Crashlytics crash reports after 90 days. Resetting your advertising ID cuts the link to past ad data held by Google.</p>
+        <h2 id="deletion">13. Data retention and deletion</h2>
+        <p>To delete everything Digit Hunt stores on your device, go to <em>Settings → Apps → Digit Hunt → Storage → Clear storage</em>, or uninstall the app. This also gives the app a new analytics ID, so earlier analytics and crash data is no longer linked to your device. Firebase deletes Analytics event data within 14 months and Crashlytics crash reports after 90 days. Resetting your advertising ID cuts the link to past ad data held by Google. Achievements saved to Google Play Games stay on your Play Games profile until you delete Digit Hunt's game data there; clearing the app's storage doesn't remove them.</p>
         <p>Step-by-step instructions, including what is kept, are on the <a href="delete-data.html">Delete your data</a> page.</p>
 
-        <h2 id="changes">13. Changes to this policy</h2>
+        <h2 id="changes">14. Changes to this policy</h2>
         <p>If we make material changes to how we handle data, we will update the date at the top of this page and, where appropriate, mention it in the Play Store release notes.</p>
 
-        <h2 id="contact">14. Contact</h2>
+        <h2 id="contact">15. Contact</h2>
         <p>Sprint Mobile Apps<br>Email: <a href="mailto:sprintapps.dev@gmail.com?subject=Digit%20Hunt%20privacy">sprintapps.dev@gmail.com</a></p>
 
       </article>
